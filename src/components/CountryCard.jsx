@@ -6,7 +6,7 @@ import { formatPopulation, getCapital } from '../utils/countryUtils';
 const CountryCard = memo(({ country }) => {
   const navigate = useNavigate();
   const toggleFavorite = useFavoritesStore((s) => s.toggleFavorite);
-  const isFavorite = useFavoritesStore((s) => s.isFavorite(country.cca3));
+  const isFavorite = useFavoritesStore((s) => s.favorites.includes(country.cca3));
 
   const handleCardClick = useCallback(() => {
     navigate(`/country/${country.cca3}`);
@@ -23,7 +23,12 @@ const CountryCard = memo(({ country }) => {
   return (
     <article className="country-card" onClick={handleCardClick}>
       <div className="card-flag-wrapper">
-        
+        <img 
+          src={country.flags.svg || country.flags.png} 
+          alt={country.flags.alt || country.name.common} 
+          className="card-flag"
+          loading="lazy" // Performans için önemli
+        />
         <button
           className={`fav-btn ${isFavorite ? 'fav-btn--active' : ''}`}
           onClick={handleFavoriteClick}
