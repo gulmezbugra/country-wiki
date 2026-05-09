@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-// Countries cache store (no persistence needed - refetch on load is fine but we cache during session)
+
 export const useCountriesStore = create((set, get) => ({
   countries: [],
   loading: false,
@@ -13,7 +13,7 @@ export const useCountriesStore = create((set, get) => ({
   setError: (error) => set({ error }),
 }));
 
-// Favorites store with localStorage persistence
+
 export const useFavoritesStore = create(
   persist(
     (set, get) => ({
