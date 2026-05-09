@@ -17,7 +17,7 @@ export const useCountriesStore = create((set, get) => ({
 export const useFavoritesStore = create(
   persist(
     (set, get) => ({
-      favorites: [], // array of cca3 codes
+      favorites: [], 
 
       toggleFavorite: (cca3) => {
         const { favorites } = get();
