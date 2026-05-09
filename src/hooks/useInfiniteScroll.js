@@ -13,7 +13,6 @@ export const useInfiniteScroll = (items) => {
     setPage((prev) => prev + 1);
   }, []);
 
-  // Reset pagination when items change (e.g. search/filter)
   useEffect(() => {
     setPage(1);
   }, [items]);
