@@ -11,19 +11,21 @@ const DetailPage = () => {
   const { code } = useParams();
   const navigate = useNavigate();
 
-  // Ensure data is loaded (handles direct URL navigation)
   const { loading, error } = useCountries();
   const countries = useCountriesStore((s) => s.countries);
-  const country = countries.find((c) => c.cca3 === code);
+  const country = countries.find((c) => c.cca3.toUpperCase() === code?.toUpperCase());
 
   const isFavorite = useFavoritesStore((s) => s.isFavorite(code));
   const toggleFavorite = useFavoritesStore((s) => s.toggleFavorite);
 
   const handleFav = useCallback(() => toggleFavorite(code), [toggleFavorite, code]);
 
-  const borderCountries = country?.borders?.map((bc) =>
-    countries.find((c) => c.cca3 === bc)
-  ).filter(Boolean) ?? [];
+  const borderCountries = useMemo(() => {
+  if (!country?.borders) return [];
+  return country.borders
+    .map((bc) => countries.find((c) => c.cca3 === bc))
+    .filter(Boolean);
+  }, [country, countries]);
 
   if (loading) return <DetailSkeleton />;
 
