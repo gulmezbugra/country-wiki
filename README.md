@@ -1,4 +1,4 @@
-# 🌍 CountryWiki
+#  CountryWiki
 
 A production-quality React application that lets you explore detailed information about every country in the world — with infinite scrolling, search & filtering, and a persistent favorites system.
 
@@ -9,7 +9,7 @@ A production-quality React application that lets you explore detailed informatio
 
 ---
 
-## ✨ Features
+##  Features
 
 - **Infinite Scrolling Feed** — Countries load progressively (20 at a time) as you scroll, like a Twitter/Instagram feed
 - **Search & Filter** — Search by name, capital, or region; filter by continent
@@ -20,7 +20,7 @@ A production-quality React application that lets you explore detailed informatio
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
@@ -51,7 +51,7 @@ npm run build
 
 ---
 
-## 🗂️ Project Structure
+##  Project Structure
 
 ```
 src/
@@ -80,7 +80,7 @@ src/
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Technology | Purpose |
 |---|---|
@@ -93,7 +93,7 @@ src/
 
 ---
 
-## ⚙️ Architecture Decisions
+##  Architecture Decisions
 
 ### Single API Call
 Data is fetched **once per session** and stored in Zustand. A `fetched` flag prevents redundant calls when navigating between pages.
@@ -114,7 +114,7 @@ Since the REST Countries API doesn't support server-side pagination, `useInfinit
 
 ---
 
-## 🌐 Data Source
+##  Data Source
 
 All country data is fetched from the free [REST Countries API](https://restcountries.com/):
 
@@ -124,7 +124,7 @@ GET https://restcountries.com/v3.1/all
 
 ---
 
-## 📸 Pages
+##  Pages
 
 | Page | Route | Description |
 |---|---|---|
